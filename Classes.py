@@ -86,9 +86,9 @@ class Projeto:
         self.orcamento: float = orcamento
         self.orcamento4: float = orcamento // 4
         self.painel: Painel = painel
-        self.calcularPayback()
+        self.economiaProjeto: float = self.calcularPayback()
     
-    def calcularPayback(self):
+    def calcularPayback(self) -> float:
         tempoVida = self.painel.tempoVida
         valorTotal = self.painel.economia
         while valorTotal < self.painel.custo:
@@ -96,4 +96,22 @@ class Projeto:
             if self.payback % 12 == 0:
                 tempoVida -= 1
             valorTotal += self.painel.economia * 2
-            
+        return valorTotal
+    
+    def AvaliarProjeto(self, boleto: float):
+        pontos=0
+        if self.economiaProjeto > boleto:
+            pontos += 1
+            print("Conseguiu ter mais dinheiro economizado do que gastava antes")
+
+        if self.painel.custo <= self.orcamento4:
+            pontos += 3
+            print("Orçamento baixo")
+        if self.painel.custo <= self.orcamento and self.painel.custo >= self.orcamento4:
+            pontos += 2
+            print("Orçamento Medio")
+        if self.painel.custo > self.orcamento:
+            pontos += 1
+            print("Orçamento estourado")
+
+        print(f"Você adquiriu {pontos}/4 pontos com a Instalação de 410Wp.")
