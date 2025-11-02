@@ -136,3 +136,5 @@ class Projeto:
             pontos += 1
 
         print(f"Você adquiriu {pontos}/5 pontos com a Instalação de {self.painel.potencia}Wp.")
+        
+        return pontos
