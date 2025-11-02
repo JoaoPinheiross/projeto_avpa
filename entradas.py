@@ -45,3 +45,14 @@ def recebeTipoPainel() -> int:
                 print("Digite um valor entre 1 e 2.\n")
         except ValueError:
             print("Tente novamente com um valor númerico.\n")
+
+def recebePaybackMeta() -> int:
+    while True:
+        try:
+            paybackMeta = int(input("Digite a meta de payback: "))
+            if paybackMeta > 0:
+                return paybackMeta
+            else:
+                print("O valor da meta de payback precisa ser maior que zero. Tente novamente.\n")
+        except ValueError:
+            print("Tente novamente com um valor númerico.\n")
