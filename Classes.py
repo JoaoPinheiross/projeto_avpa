@@ -61,6 +61,7 @@ class Painel:
         Returns:
             Não possui retornos.
         '''
+        self.calcularManutencao()
         self.economia = boleto - self.manutencao
 
 class Empresa:
