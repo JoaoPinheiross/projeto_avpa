@@ -90,10 +90,10 @@ class Projeto:
     
     def calcularPayback(self):
         tempoVida = self.painel.tempoVida
-        economia = self.painel.economia
-        while self.painel.economia < self.painel.custo:
+        valorTotal = self.painel.economia
+        while valorTotal < self.painel.custo:
             self.payback += 1
             if self.payback % 12 == 0:
                 tempoVida -= 1
-            valorTotal = economia * 2
+            valorTotal += self.painel.economia * 2
             
