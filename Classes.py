@@ -8,10 +8,12 @@ class Painel:
     irradiacao: float = 4.6
 
     # Construtor
-    def __init__(self, potencia: int, eficiencia: float, tempoVida: int) -> None:
+    def __init__(self, potencia: int, eficiencia: float, tempoVida: int, gastoEnergia: float, boleto: float) -> None:
         self.potencia: float = potencia
         self.eficiencia = eficiencia
         self.tempoVida = tempoVida
+        self.calcularCusto(gastoEnergia)
+        self.calcularEconomia(boleto)
 
     # Métodos
     def calcularQuantidade(self, gastoEnergia: float) -> None:
@@ -26,7 +28,7 @@ class Painel:
         if (self.quantidade == 0):
             self.quantidade += 1
 
-    def calcularGeracaoEnergia(self):
+    def calcularGeracaoEnergia(self) -> None:
         '''Calcula a geração de energia do painel solar.
         Args:
             Não possui argumentos.
@@ -35,17 +37,17 @@ class Painel:
         '''
         self.geracaoEnergia = self.potencia * self.irradiacao * self.eficiencia * 30 // 1000 # 30 = dias do Mês, 1000 = Tonelada
 
-    def calcularCusto(self, gastoEnergia):
+    def calcularCusto(self, gastoEnergia) -> None:
         '''Calcula o custo de compra dos paineis solares.
         Args:
-            Não possui argumentos.
+            gastoEnergia (float): Gasto de energia da empresa.
         Returns:
             Não possui retornos.
         '''
         self.calcularQuantidade(gastoEnergia)
         self.custo = self.quantidade * self.potencia * (self.potencia / 1000)
 
-    def calcularManutencao(self):
+    def calcularManutencao(self) -> None:
         '''Calcula o custo de manutenção dos paineis.
         Args:
             Não possui argumentos.
@@ -54,7 +56,7 @@ class Painel:
         '''
         self.manutencao = self.geracaoEnergia // 0.874
 
-    def calcularEconomia(self, boleto):
+    def calcularEconomia(self, boleto) -> None:
         '''Calcula a economia oriunda dos painéis solares.
         Args:
             boleto (float): Custo com energia elétrica da empresa.
@@ -75,9 +77,22 @@ class Empresa:
         self.emissaoCo2Kg: float = self.gastoEnergia * 0.289 * 1000 # Gasto de energia(Kws) * fator de emissão * 1000(para transformação em Kg)
 
 class Projeto:
+    # Atributos
+    payback: int = 0
+
     # Construtor
     def __init__(self, nome: str, orcamento: float, painel: Painel) -> None:
         self.nome: str = nome
         self.orcamento: float = orcamento
         self.orcamento4: float = orcamento // 4
         self.painel: Painel = painel
+    
+    def calcularPayback(self):
+        tempoVida = self.painel.tempoVida
+        economia = self.painel.economia
+        while self.painel.economia < self.painel.custo:
+            self.payback += 1
+            if self.payback % 12 == 0:
+                tempoVida -= 1
+            valorTotal = economia * 2
+            
