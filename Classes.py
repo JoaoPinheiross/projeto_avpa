@@ -4,6 +4,7 @@ class Painel:
     geracaoEnergia: float = 0.0
     custo: float = 0.0
     manutencao: float = 0.0
+    economia: float = 0.0
     irradiacao: float = 4.6
 
     # Construtor
@@ -50,6 +51,15 @@ class Painel:
             Não possui retornos.
         '''
         self.manutencao = self.potencia // 0.870
+
+    def calcularEconomia(self, boleto):
+        '''Calcula a economia oriunda dos painéis solares.
+        Args:
+            boleto (float): Custo com energia elétrica da empresa.
+        Returns:
+            Não possui retornos.
+        '''
+        self.economia = boleto - self.manutencao
 
 class Empresa:
     # Atributos
