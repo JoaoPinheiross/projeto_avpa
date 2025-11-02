@@ -98,7 +98,7 @@ class Projeto:
             valorTotal += self.painel.economia * 2
         return valorTotal
     
-    def AvaliarProjeto(self, boleto: float):
+    def AvaliarProjeto(self, boleto: float, paybackMeta: int):
         pontos=0
 
         # Avalia economia
@@ -117,4 +117,8 @@ class Projeto:
             pontos += 1
             print("Orçamento estourado")
 
+        # Avalia Payback
+        if self.payback <= paybackMeta:
+            pontos += 1
+            
         print(f"Você adquiriu {pontos}/5 pontos com a Instalação de {self.painel.potencia}Wp.")
