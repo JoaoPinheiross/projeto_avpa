@@ -71,10 +71,11 @@ class Empresa:
     tarifa = 0.68
 
     # Construtor
-    def __init__(self, custoEnergia: float) -> None:
+    def __init__(self, custoEnergia: float, paybackMeta: int) -> None:
         self.custoEnergia: float = custoEnergia
         self.gastoEnergia: float = custoEnergia * self.tarifa
         self.emissaoCo2Kg: float = self.gastoEnergia * 0.289 * 1000 # Gasto de energia(Kws) * fator de emissão * 1000(para transformação em Kg)
+        self.paybackMeta = paybackMeta
 
 class Projeto:
     # Atributos
