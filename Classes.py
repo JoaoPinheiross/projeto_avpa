@@ -89,6 +89,12 @@ class Projeto:
         self.economiaProjeto: float = self.calcularPayback()
     
     def calcularPayback(self) -> float:
+        '''Calcula o payback do projeto, além da economia que o projeto irá trazer.
+        Args:
+            Não possui argumentos.
+        Returns:
+            float:Retorna a economia do projeto.
+        '''
         tempoVida = self.painel.tempoVida
         valorTotal = self.painel.economia
         while valorTotal < self.painel.custo:
@@ -99,6 +105,13 @@ class Projeto:
         return valorTotal
     
     def AvaliarProjeto(self, boleto: float, paybackMeta: int):
+        '''Avalia o projeto baseado em alguns parâmetros.
+        Args:
+            boleto (float): Valor gasto com energia elétrica pela empresa.
+            paybackMeta (int): A meta de payback proposta pela empresa.
+        Returns:
+            Não possui retornos.
+        '''
         pontos=0
 
         # Avalia economia
@@ -120,5 +133,5 @@ class Projeto:
         # Avalia Payback
         if self.payback <= paybackMeta:
             pontos += 1
-            
+
         print(f"Você adquiriu {pontos}/5 pontos com a Instalação de {self.painel.potencia}Wp.")
