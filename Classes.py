@@ -43,7 +43,7 @@ class Painel:
             Não possui retornos.
         '''
         self.calcularQuantidade(gastoEnergia)
-        self.custo = self.quantidade * self.potencia * (self.potencia / 100)
+        self.custo = self.quantidade * self.potencia * (self.potencia / 1000)
 
     def calcularManutencao(self):
         '''Calcula o custo de manutenção dos paineis.
@@ -52,7 +52,7 @@ class Painel:
         Returns:
             Não possui retornos.
         '''
-        self.manutencao = self.potencia // 0.870
+        self.manutencao = self.geracaoEnergia // 0.874
 
     def calcularEconomia(self, boleto):
         '''Calcula a economia oriunda dos painéis solares.
