@@ -21,6 +21,7 @@ class Painel:
         Returns:
             Não possui retornos.
         '''
+        self.calcularGeracaoEnergia()
         self.quantidade =  int(gastoEnergia // self.geracaoEnergia) # gasto de energia // energia gerada pelo painel
         if (self.quantidade == 0):
             self.quantidade += 1
@@ -34,13 +35,14 @@ class Painel:
         '''
         self.geracaoEnergia = self.potencia * self.irradiacao * self.eficiencia * 30 // 1000 # 30 = dias do Mês, 1000 = Tonelada
 
-    def calcularCusto(self):
+    def calcularCusto(self, gastoEnergia):
         '''Calcula o custo de compra dos paineis solares.
         Args:
             Não possui argumentos.
         Returns:
             Não possui retornos.
         '''
+        self.calcularQuantidade(gastoEnergia)
         self.custo = self.quantidade * self.potencia * (self.potencia / 100)
 
     def calcularManutencao(self):
