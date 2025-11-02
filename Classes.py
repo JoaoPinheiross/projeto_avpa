@@ -100,10 +100,13 @@ class Projeto:
     
     def AvaliarProjeto(self, boleto: float):
         pontos=0
+
+        # Avalia economia
         if self.economiaProjeto > boleto:
             pontos += 1
             print("Conseguiu ter mais dinheiro economizado do que gastava antes")
 
+        # Avalia orçamento
         if self.painel.custo <= self.orcamento4:
             pontos += 3
             print("Orçamento baixo")
@@ -114,4 +117,4 @@ class Projeto:
             pontos += 1
             print("Orçamento estourado")
 
-        print(f"Você adquiriu {pontos}/4 pontos com a Instalação de 410Wp.")
+        print(f"Você adquiriu {pontos}/5 pontos com a Instalação de {self.painel.potencia}Wp.")
