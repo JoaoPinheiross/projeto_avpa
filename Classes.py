@@ -86,6 +86,7 @@ class Projeto:
         self.orcamento: float = orcamento
         self.orcamento4: float = orcamento // 4
         self.painel: Painel = painel
+        self.calcularPayback()
     
     def calcularPayback(self):
         tempoVida = self.painel.tempoVida
