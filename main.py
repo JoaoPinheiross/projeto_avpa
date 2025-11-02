@@ -1,44 +1,16 @@
-from Projeto import Projeto
+from Classes import Projeto, Painel, Empresa
+from entradas import recebeBoleto, recebeNomeEmpresa, recebeOrcamento, recebeTipoPainel
 
-def avaliaProjeto(projeto: Projeto) -> str:
-    '''Avalia o projeto de acordo com as metas já propostas pela empresa.
-    Args:
-        projeto (Projeto): O objeto projeto com todos os seus atributos.
-    Returns:
-        str: Retorna uma mensagem dizendo a qualidade do projeto.
-    '''
-    pontos = 0
+boleto: float = recebeBoleto()
+empresa: Empresa = Empresa(boleto)
 
-    # Compara os parâmetros do projeto pelas metas da empresa.
-    if projeto.payback >= Projeto.PAYBACK:
-        pontos += 1
-    if projeto.geracao >= Projeto.GERACAOENERGIA:
-        pontos += 1
-    if projeto.geracaoCo2 >= Projeto.REDUCAOCO2:
-        pontos += 1
-    
-    # Verifica o nível do projeto
-    if pontos >= 3:
-        return "Um projeto ótimo"
-    elif pontos >= 2:
-        return "Um projeto mediano"
-    else:
-        return "Um projeto ruim"
+nomeEmpresa = recebeNomeEmpresa()
+orcamento = recebeOrcamento()
 
-def definiProjeto() -> Projeto:
-    '''Define o projeto com os parâmetros recebidos pelo usuário.
-    Args:
-        Não possui argumentos.
-    Returns:
-        Projeto: Retorna o objeto Projeto criado.
-    '''
-    # Recebe os valores do usúario
-    nome = input("Digite o nome do projeto: ")
-    payback = int(input("Digite o tempo de retorno do projeto: "))
-    geracaoEnergia = float(input("Digite a geração de energia do projeto: "))
-    # Cria o objeto do projeto
-    projeto = Projeto(nome, payback, geracaoEnergia)
-    return projeto
+tipoPainel = recebeTipoPainel()
+if tipoPainel == 1:
+    painel = Painel(410, 0.79, 10)
+else:
+    painel = Painel(655, 0.75, 12)
 
-projeto = definiProjeto()
-print(avaliaProjeto(projeto))
+projeto = Projeto(nomeEmpresa, orcamento, painel)
