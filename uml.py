@@ -32,9 +32,9 @@ def registrar(atividade, tipo="acao"):
         plantumlLog.append("@enduml")
 
 # Métodos que definem as atividades
-def receberDados():
+def extrairHistórico():
     time.sleep(0.1)
-    registrar("Receber dados do projeto")
+    registrar("Extrair histórico da empresa")
 
 def definirProjeto():
     time.sleep(0.1)
@@ -54,8 +54,9 @@ def descartar():
 def negociar():
     registrar("Negociar projeto")
 
-def aplicar():
-    registrar("Colocar projeto em prática")
+def entregarRelatorio():
+    registrar("Realizar relatório")
+    registrar("Entregar relatório do projeto")
     registrar("", "fim")
 
 # Decisão de aprovação
@@ -89,7 +90,8 @@ def simularProjeto(pontos: int):
         Não possui retornos.
     '''
     # Simula as atividades
-    receberDados()
+    extrairHistórico()
+    definirProjeto()
     escolherPainel()
     avaliar()
 
@@ -97,7 +99,7 @@ def simularProjeto(pontos: int):
     if decisaoAprovar(pontos):
         # Caminho do "Sim" é registrado aqui
         negociar()
-        aplicar()
+        entregarRelatorio()
     else:
         # Caminho do "Não" é registrado aqui
         descartar()
