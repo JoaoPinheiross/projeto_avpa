@@ -17,37 +17,48 @@ skinparam classAttributeIconSize 0
 package "Model" {
 
 class Projeto {
-    - Nome: String
-    - Orçamento: int
-    - OrçamentoP4: int
-    - Boleto: int
-    - Tarifa: float
-    - Energia: float
-    - Emissao: float
-    - Potencia: int
+    - nome: String
+    - orçamento: int
+    - orçamentoP4: int
+    - painel: Painel
+    - economiaProjeto:float
     --
+    + Projeto(nome: str, orcamento: float, painel: Painel)
+    + calcularPayback(): float
+    + avaliarProjeto(boleto: float, paybackMeta: int): int
 }
 
 class Painel {
-    - EnergiaP: int
-    - Quantidade: int
-    - Custo: float
-    - Taxa: float
-    - Lucro: float
-    - Meses: int
-    - TempoVida: int
+    - potencia: float
+    - irradiacao: float
+    - eficiencia: float
+    - quantidade: int
+    - custo: float
+    - manutencao: float
+    - tempoVida: int
+    - economia: float
+    - geracaoEnergia: float
     --
-    + Payback()
+    + Painel(potencia: int, eficiencia: float, tempoVida: int, gastoEnergia: float, boleto: float)
+    + calcularQuantidade()
+    + calcularGeracaoEnergia()
+    + calcularCusto()
+    + calcularManutencao()
+    + calcularEconomia()
 }
 
-class Avaliação {
-    - Pontos: int
+class Empresa {
+    - custoEnergia: float
+    - gastoEnergia: float
+    - emissaoCo2Kg: float
+    - tarifa: float
+    - paybackMeta
     --
-    + Avaliar()
+    + Empresa(custoEnergia: float, paybackMeta: int)
 }
 
-Projeto "1" -r-o "1" Painel
-Painel -r- Avaliação
+Projeto "1" --o "1..*" Painel
+Empresa "1" -- "1..*" Projeto
 
 }
 
