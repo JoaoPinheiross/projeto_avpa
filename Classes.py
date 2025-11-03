@@ -138,5 +138,9 @@ class Projeto:
 
         # Apresenta o resultado da avaliação
         print(f"\nVocê adquiriu {pontos}/5 pontos com a Instalação de {self.painel.potencia}Wp.\n")
+        if pontos >= 3:
+            print(f"O seu projeto {self.nome} foi aprovado!")
+        else:
+            print(f"O seu projeto {self.nome} foi reprovado!")
         
         return pontos
