@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 from plantuml import PlantUML
 
-plantuml_code_string = """
+codigoPlantUML = """
 @startuml
 
 skinparam style strictuml
@@ -66,9 +66,9 @@ Empresa "1" -- "1..*" Projeto
 """
 
 plantuml = PlantUML(url='http://www.plantuml.com/plantuml/img/')
-imagem = plantuml.processes(plantuml_code_string)
+imagem = plantuml.processes(codigoPlantUML)
 diretorioAtual = Path(__file__).resolve().parent
-nomeArquivo = diretorioAtual / 'diagrama_classe.png'
+nomeArquivo = diretorioAtual / 'img_diagrama_classe.png'
 with open(nomeArquivo, 'wb') as f:
     f.write(imagem)
 
