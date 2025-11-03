@@ -21,7 +21,7 @@ else:
 projeto = Projeto(nomeProjeto, orcamento, painel) # Criando Projeto
 
 # Apresentando dados
-print("-- Histórico da empresa --")
+print("\n-- Histórico da empresa --")
 print(f"energia gasta: {empresa.gastoEnergia:1.0f}kWh.\nGerando cerca de {empresa.emissaoCo2Kg:.2f}Kg de emissões.\n")
 
 print("-- Quantidade de painéis --")

@@ -8,7 +8,7 @@ def recebeBoleto() -> float:
     while True:
         # Tenta receber o valor gasto
         try:
-            boleto: float = float(input("Insira o valor do gasto na conta de energia em reais. EX: 200.\nR: "))
+            boleto: float = float(input("\nInsira o valor do gasto na conta de energia em reais. EX: 200.\nR: "))
             if boleto > 0:
                 return boleto # retorna o valor gasto 
             else:
@@ -44,7 +44,7 @@ def recebeOrcamento() -> float:
     while True:
         # Tenta receber o orçamento
         try:
-            orcamento = float(input("Valor do orçamento que deseja investir o projeto em reais. EX: 100.\nR: "))
+            orcamento = float(input("\nValor do orçamento que deseja investir o projeto em reais. EX: 100.\nR: "))
             if orcamento > 0:
                 return orcamento
             else:
@@ -64,7 +64,7 @@ def recebeTipoPainel() -> int:
     while True:
         # Tenta receber o tipo de painel
         try:
-            tipoPainel = int(input("Digite o tipo de painel a ser utilizado:\n1 - 410w\n2 - 655w\n"))
+            tipoPainel = int(input("\nDigite o tipo de painel a ser utilizado:\n1 - 410w\n2 - 655w\n"))
             if tipoPainel == 1 or tipoPainel == 2:
                 return tipoPainel
             else:
@@ -84,7 +84,7 @@ def recebePaybackMeta() -> int:
     while True:
         # Tenta receber a meta de payback
         try:
-            paybackMeta = int(input("Digite a meta de payback: "))
+            paybackMeta = int(input("\nDigite a meta de payback do projeto: "))
             if paybackMeta > 0:
                 return paybackMeta
             else:
