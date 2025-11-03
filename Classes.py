@@ -136,6 +136,6 @@ class Projeto:
             pontos += 1
             print("- Meta de Payback atinjida")
 
-        print(f"Você adquiriu {pontos}/5 pontos com a Instalação de {self.painel.potencia}Wp.")
+        print(f"\nVocê adquiriu {pontos}/5 pontos com a Instalação de {self.painel.potencia}Wp.\n")
         
         return pontos

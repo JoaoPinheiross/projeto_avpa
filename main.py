@@ -34,4 +34,6 @@ print(f"Payback de {projeto.payback} meses\n")
 print("-- Avaliação do Projeto --")
 print("Entres ambos paineis, com base de 0 a 5 pontos o seu projetos tem:\n")
 pontos = projeto.AvaliarProjeto(empresa.custoEnergia, empresa.paybackMeta)
+
+print("Gerando diagrama...")
 simularProjeto(pontos)
