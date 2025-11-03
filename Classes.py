@@ -118,22 +118,23 @@ class Projeto:
         # Avalia economia
         if self.economiaProjeto > boleto:
             pontos += 1
-            print("Conseguiu ter mais dinheiro economizado do que gastava antes")
+            print("- Conseguiu ter mais dinheiro economizado do que gastava antes")
 
         # Avalia orçamento
         if self.painel.custo <= self.orcamento4:
             pontos += 3
-            print("Orçamento baixo")
+            print("- Orçamento baixo")
         if self.painel.custo <= self.orcamento and self.painel.custo >= self.orcamento4:
             pontos += 2
-            print("Orçamento Medio")
+            print("- Orçamento Medio")
         if self.painel.custo > self.orcamento:
             pontos += 1
-            print("Orçamento estourado")
+            print("- Orçamento estourado")
 
         # Avalia Payback
         if self.payback <= paybackMeta:
             pontos += 1
+            print("- Meta de Payback atinjida")
 
         print(f"Você adquiriu {pontos}/5 pontos com a Instalação de {self.painel.potencia}Wp.")
         
