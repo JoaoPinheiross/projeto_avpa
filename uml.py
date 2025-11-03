@@ -44,7 +44,7 @@ def avaliar():
 
 def decisaoAprovar(pontos):
     registrar("Projeto Aprovado?", "decisao_ini")
-    meta = 5
+    meta = 3
     if pontos >= meta:
         return True
     else:
@@ -63,7 +63,6 @@ def aplicar():
 
 def gerarUml():
     plantDiagrama = "\n".join(plantumlLog)
-
 
     plantuml = PlantUML(url='http://www.plantuml.com/plantuml/img/')
     imagem = plantuml.processes(plantDiagrama)

@@ -62,4 +62,3 @@ with open(nomeArquivo, 'wb') as f:
     f.write(imagem)
 
 print(f"Diagrama salvo com sucesso em: {nomeArquivo}")
-
