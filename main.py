@@ -17,6 +17,21 @@ else:
 
 projeto = Projeto(nomeEmpresa, orcamento, painel)
 
-pontos = projeto.AvaliarProjeto(empresa.custoEnergia, empresa.paybackMeta)
+print("-- Histórico da empresa --")
+print(f"energia gasta: {empresa.gastoEnergia:1.0f}kWh.\nGerando cerca de {empresa.emissaoCo2Kg:.2f}Kg de emissões.\n")
 
+print("-- Quantidade de painéis --")
+print(f"{projeto.painel.quantidade:1.0f} painéis de {projeto.painel.potencia}WP\n")
+
+print("-- Gastos do projeto --")
+print(f"{projeto.painel.quantidade}x Painel {projeto.painel.potencia}WP = {projeto.painel.custo:1.0f}\n")
+
+print(f"Economia com o projeto = {projeto.painel.economia}\n")
+
+print(f"Payback de {projeto.payback} meses\n")
+
+
+print("-- Avaliação do Projeto --")
+print("Entres ambos paineis, com base de 0 a 5 pontos o seu projetos tem:")
+pontos = projeto.AvaliarProjeto(empresa.custoEnergia, empresa.paybackMeta)
 simularProjeto(pontos)
