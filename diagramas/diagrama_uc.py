@@ -1,7 +1,9 @@
+# Importando bibliotecas
 import os
 from pathlib import Path
 from plantuml import PlantUML
 
+# Código PlantUML
 codigoPlantUML = """
 @startuml
 
@@ -28,6 +30,7 @@ Usuário -r-> UC1
 @enduml
 """
 
+# Baixando a imagem do diagrama
 plantuml = PlantUML(url='http://www.plantuml.com/plantuml/img/')
 imagem = plantuml.processes(codigoPlantUML)
 diretorioAtual = Path(__file__).resolve().parent

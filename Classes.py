@@ -113,7 +113,7 @@ class Projeto:
         Returns:
             int: Os pontos da avaliação.
         '''
-        pontos=0
+        pontos = 0
 
         # Avalia economia
         if self.economiaProjeto > boleto:
@@ -136,6 +136,7 @@ class Projeto:
             pontos += 1
             print("- Meta de Payback atinjida")
 
+        # Apresenta o resultado da avaliação
         print(f"\nVocê adquiriu {pontos}/5 pontos com a Instalação de {self.painel.potencia}Wp.\n")
         
         return pontos

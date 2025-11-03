@@ -1,3 +1,4 @@
+# Importando bibliotecas
 import time
 from plantuml import PlantUML
 from pathlib import Path
@@ -30,6 +31,7 @@ def registrar(atividade, tipo="acao"):
         plantumlLog.append("stop")
         plantumlLog.append("@enduml")
 
+# Métodos que definem as atividades
 def receberDados():
     time.sleep(0.1)
     registrar("Receber dados do projeto")
@@ -42,15 +44,6 @@ def avaliar():
     time.sleep(0.1)
     registrar("Avaliar Projeto")
 
-def decisaoAprovar(pontos):
-    registrar("Projeto Aprovado?", "decisao_ini")
-    meta = 3
-    if pontos >= meta:
-        return True
-    else:
-        registrar("", "decisao_senao")
-        return False
-
 def descartar():
     registrar("Projeto descartado")
 
@@ -61,6 +54,17 @@ def aplicar():
     registrar("Colocar projeto em prática")
     registrar("", "fim")
 
+# Decisão de aprovação
+def decisaoAprovar(pontos):
+    registrar("Projeto Aprovado?", "decisao_ini")
+    meta = 3
+    if pontos >= meta:
+        return True
+    else:
+        registrar("", "decisao_senao")
+        return False
+
+# Gera e salva a UML
 def gerarUml():
     plantDiagrama = "\n".join(plantumlLog)
 
@@ -73,18 +77,19 @@ def gerarUml():
 
     print(f"Diagrama salvo com sucesso em: {nomeArquivo}")
 
-def simularProjeto(pontos):
-    plantumlLog = [
-    "@startuml",
-    "title Diagrama de Atividades: Campanha de Marketing",
-    "start"
-    ]
-
+def simularProjeto(pontos: int):
+    '''Simula a avaliação do projeto usando uma UML.
+    Args:
+        pontos (int): Os pontos obtidos na avaliação.
+    Returns:
+        Não possui retornos.
+    '''
+    # Simula as atividades
     receberDados()
     escolherPainel()
     avaliar()
 
-    # 3. Lógica de decisão que registra corretamente os dois caminhos
+    # Lógica de decisão que registra corretamente os dois caminhos
     if decisaoAprovar(pontos):
         # Caminho do "Sim" é registrado aqui
         negociar()
@@ -95,4 +100,6 @@ def simularProjeto(pontos):
 
     # O 'endif' é chamado APÓS ambos os caminhos terem sido definidos
     registrar("", "decisao_fim")
+
+    # Chama o método que gera a uml
     gerarUml()
