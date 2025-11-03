@@ -36,6 +36,10 @@ def receberDados():
     time.sleep(0.1)
     registrar("Receber dados do projeto")
 
+def definirProjeto():
+    time.sleep(0.1)
+    registrar("Definir parâmetros do projeto")
+
 def escolherPainel():
     time.sleep(0.1)
     registrar("Escolher tipo de painel")
