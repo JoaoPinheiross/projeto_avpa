@@ -75,7 +75,7 @@ class Empresa:
         self.custoEnergia: float = custoEnergia
         self.gastoEnergia: float = custoEnergia * self.tarifa
         self.emissaoCo2Kg: float = self.gastoEnergia * 0.289 * 1000 # Gasto de energia(Kws) * fator de emissão * 1000(para transformação em Kg)
-        self.paybackMeta = paybackMeta
+        self.paybackMeta: int = paybackMeta
 
 class Projeto:
     # Atributos
@@ -105,13 +105,13 @@ class Projeto:
             valorTotal += self.painel.economia * 2
         return valorTotal
     
-    def AvaliarProjeto(self, boleto: float, paybackMeta: int):
+    def AvaliarProjeto(self, boleto: float, paybackMeta: int) -> int:
         '''Avalia o projeto baseado em alguns parâmetros.
         Args:
             boleto (float): Valor gasto com energia elétrica pela empresa.
             paybackMeta (int): A meta de payback proposta pela empresa.
         Returns:
-            Não possui retornos.
+            int: Os pontos da avaliação.
         '''
         pontos=0
 
