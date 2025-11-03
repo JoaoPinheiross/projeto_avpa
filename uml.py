@@ -67,7 +67,7 @@ def gerarUml():
     plantuml = PlantUML(url='http://www.plantuml.com/plantuml/img/')
     imagem = plantuml.processes(plantDiagrama)
     diretorioAtual = Path(__file__).resolve().parent
-    nomeArquivo = diretorioAtual / 'diagramas' / 'diagrama_avalia_projeto.png'
+    nomeArquivo = diretorioAtual / 'diagramas' / 'img_diagrama_avalia_projeto.png'
     with open(nomeArquivo, 'wb') as f:
         f.write(imagem)
 
