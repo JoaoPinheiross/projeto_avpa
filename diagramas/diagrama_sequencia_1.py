@@ -46,8 +46,11 @@ Usuário --
 # Baixando a imagem do diagrama
 plantuml = PlantUML(url='http://www.plantuml.com/plantuml/img/')
 imagem = plantuml.processes(codigoPlantUML)
-diretorioAtual = Path(__file__).resolve().parent
-nomeArquivo = diretorioAtual / 'img_diagrama_sequencia_1.png'
+try:
+    diretorioAtual = Path(__file__).resolve().parent
+    nomeArquivo = diretorioAtual / 'img_diagrama_sequencia_1.png'
+except NameError:
+    nomeArquivo = 'img_diagrama_sequencia1.png'
 with open(nomeArquivo, 'wb') as f:
     f.write(imagem)
 

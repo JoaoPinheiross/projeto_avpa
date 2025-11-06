@@ -70,8 +70,11 @@ Empresa "1" -- "1..*" Projeto
 # Baixando a imagem do diagrama
 plantuml = PlantUML(url='http://www.plantuml.com/plantuml/img/')
 imagem = plantuml.processes(codigoPlantUML)
-diretorioAtual = Path(__file__).resolve().parent
-nomeArquivo = diretorioAtual / 'img_diagrama_classe.png'
+try:
+    diretorioAtual = Path(__file__).resolve().parent
+    nomeArquivo = diretorioAtual / 'img_diagrama_classe.png'
+except NameError:
+    nomeArquivo = 'img_diagrama_classe.png'
 with open(nomeArquivo, 'wb') as f:
     f.write(imagem)
 
